@@ -73,15 +73,10 @@ Public Class Form1
 
     Private Sub UltraTimelineView1_MouseClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles UltraTimelineView1.MouseClick
 
-        If e.Button = Windows.Forms.MouseButtons.Left Then
-            Me.UltraMonthViewMulti1.CalendarInfo.SelectedDateRanges.Clear()
-            Me.UltraMonthViewMulti1.CalendarInfo.SelectedDateRanges.Add(Me.UltraTimelineView1.SelectedDateTimeRange.StartDateTime)
-            Me.UltraMonthViewMulti1.EnsureVisible(Me.UltraMonthViewMulti1.CalendarInfo.GetMonth(Me.UltraMonthViewMulti1.CalendarInfo.SelectedDateRanges.Item(0).StartDate.Date))
-
-        ElseIf e.Button = Windows.Forms.MouseButtons.Right Then
-
-        End If
-
+        Me.UltraMonthViewMulti1.CalendarInfo.SelectedDateRanges.Clear()
+        Me.UltraMonthViewMulti1.CalendarInfo.SelectedDateRanges.Add(Me.UltraTimelineView1.SelectedDateTimeRange.StartDateTime, Me.UltraTimelineView1.SelectedDateTimeRange.EndDateTime)
+        Me.UltraMonthViewMulti1.EnsureVisible(Me.UltraMonthViewMulti1.CalendarInfo.GetMonth(Me.UltraMonthViewMulti1.CalendarInfo.SelectedDateRanges.Item(0).StartDate.Date))
+        
     End Sub
 
 End Class
